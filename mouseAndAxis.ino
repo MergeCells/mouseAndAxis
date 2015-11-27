@@ -41,27 +41,27 @@ void loop() {
   g = sqrt(x * x + y * y + z * z);
 
   if ((0.9 < g) && (g < 1.1)) {
-    if ( (digitalRead(cursorMoveBtn) == LOW) ) {
+    if (digitalRead(cursorMoveBtn) == LOW) {
       dltX += asin(y) / 1.57 * 20;
       dltY += asin(x) / 1.57 * 20;
-      Mouse.move((int)dltX, (int)dltY, 0);
-      dltX -= (int)dltX;
-      dltY -= (int)dltY;
+      Mouse.move(int(dltX + 0.5), int(dltY + 0.5), 0);
+      dltX -= int(dltX + 0.5);
+      dltY -= int(dltY + 0.5);
     }
-    if ( (digitalRead(scrollMoveBtn) == LOW) ) {
-      dltZ += -asin(x) / 1.57 /2;
-      Mouse.move(0,0,(int)dltZ);
-      dltZ -= (int)dltZ;
+    if (digitalRead(scrollMoveBtn) == LOW) {
+      dltZ += -asin(x) / 1.57 / 2;
+      Mouse.move(0, 0, int(dltZ + 0.5));
+      dltZ -= int(dltZ + 0.5);
     }
   }
-  if(digitalRead(pushLftBtn) == LOW){
+  if (digitalRead(pushLftBtn) == LOW) {
     Mouse.press(MOUSE_LEFT);
-  }else if(Mouse.isPressed(MOUSE_LEFT)){
+  } else if (Mouse.isPressed(MOUSE_LEFT)) {
     Mouse.release(MOUSE_LEFT);
   }
-  if(digitalRead(pushRgtBtn) == LOW){
+  if (digitalRead(pushRgtBtn) == LOW) {
     Mouse.press(MOUSE_RIGHT);
-  }else if(Mouse.isPressed(MOUSE_RIGHT)){
+  } else if (Mouse.isPressed(MOUSE_RIGHT)) {
     Mouse.release(MOUSE_RIGHT);
   }
   delay(5);
