@@ -5,6 +5,21 @@
 #define pushLftBtn 6
 #define pushRgtBtn 9
 
+/*
+ * ADXL - 335
+ * 1 Vdd  A3 (3.3Vcc 
+ * 2 ST   GND
+ * 3 GND  NC
+ * 4 GND  NC
+ * 5 Zout A2
+ * 6 Yout A1
+ * 7 Xout A0
+ * 8 GND  GND
+ * 
+ * 
+*/
+
+
 double vdd;
 double rx, ry, rz;
 double x, y, z;
